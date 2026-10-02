@@ -1,0 +1,6 @@
+{
+  "name": "PhishLens - Phishing, QR & UPI Security Scanner",
+  "description": "Enterprise-grade scanner for phishing URLs, lookalike domains, QR codes, and authorized NPCI UPI handles with pre-camera permission guard.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

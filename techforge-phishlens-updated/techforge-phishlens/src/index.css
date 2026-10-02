@@ -1,0 +1,252 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #fcf9fa;
+    color: #1e293b;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* 1. Dramatic Danger Vibration & Shake for Malicious Threat Detection */
+@keyframes danger-vibrate {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(-10px, -4px) rotate(-1.8deg); }
+  20% { transform: translate(10px, 4px) rotate(1.8deg); }
+  30% { transform: translate(-8px, 3px) rotate(-1.2deg); }
+  40% { transform: translate(8px, -3px) rotate(1.2deg); }
+  50% { transform: translate(-5px, 2px) rotate(-0.8deg); }
+  60% { transform: translate(5px, -2px) rotate(0.8deg); }
+  70% { transform: translate(-3px, 1px) rotate(-0.4deg); }
+  80% { transform: translate(3px, -1px) rotate(0.4deg); }
+  90% { transform: translate(-1px, 0px) rotate(0deg); }
+}
+
+/* 2. Red Alert Glowing Pulse */
+@keyframes danger-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(220, 38, 38, 0.4), 0 0 60px rgba(220, 38, 38, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(220, 38, 38, 0.7), 0 0 90px rgba(220, 38, 38, 0.4);
+  }
+}
+
+/* 3. Caution Amber Glow Pulse */
+@keyframes caution-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(217, 119, 6, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(217, 119, 6, 0.6);
+  }
+}
+
+/* 4. Safe Emerald Radiance */
+@keyframes safe-radiance {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(5, 150, 105, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(5, 150, 105, 0.55);
+  }
+}
+
+/* 5. Tagline Cinematic Entrance & Glow Animation on Website Reload */
+@keyframes tagline-cinematic {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.97);
+    filter: blur(4px);
+  }
+  50% {
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 6. QR Scanner Laser Beam Smooth Motion */
+@keyframes laser-sweep {
+  0% {
+    top: 5%;
+    opacity: 0.8;
+  }
+  50% {
+    top: 92%;
+    opacity: 1;
+  }
+  100% {
+    top: 5%;
+    opacity: 0.8;
+  }
+}
+
+@keyframes shimmer-sweep {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.08); opacity: 0.3; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.animate-danger-vibrate {
+  animation: danger-vibrate 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.97) both, danger-glow-pulse 2s infinite ease-in-out;
+}
+
+.animate-caution-pulse {
+  animation: caution-glow-pulse 2s infinite ease-in-out;
+}
+
+.animate-safe-radiance {
+  animation: safe-radiance 2.5s infinite ease-in-out;
+}
+
+.animate-tagline-cinematic {
+  animation: tagline-cinematic 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-laser-sweep {
+  animation: laser-sweep 2.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer-sweep 3s infinite linear;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s infinite ease-in-out;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #f43f5e;
+  border-radius: 9999px;
+}
+
+/* ---------- Navbar speciality (dark, inverted) ---------- */
+.pl-navbar {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(244, 63, 94, 0.22) 1px, transparent 0),
+    linear-gradient(180deg, #111827 0%, #0b0f17 100%);
+  background-size: 14px 14px, 100% 100%;
+  position: sticky;
+  overflow: visible;
+}
+
+/* Flowing rose -> amber -> rose gradient line along the bottom edge */
+.pl-navbar-edge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #e11d48, #f59e0b, #e11d48, #fb7185, #e11d48);
+  background-size: 300% 100%;
+  animation: navbar-flow 6s linear infinite;
+  box-shadow: 0 0 14px rgba(244, 63, 94, 0.8);
+}
+
+/* Soft light that sweeps across the bar */
+.pl-navbar-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.pl-navbar-scan::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 160px;
+  left: -200px;
+  background: linear-gradient(100deg, transparent, rgba(244, 63, 94, 0.22), transparent);
+  animation: navbar-scan 7s ease-in-out infinite;
+}
+
+.pl-brand-glow {
+  text-shadow: 0 0 14px rgba(244, 63, 94, 0.55);
+}
+
+@keyframes navbar-flow {
+  0% { background-position: 0% 0; }
+  100% { background-position: 300% 0; }
+}
+@keyframes navbar-scan {
+  0% { left: -200px; }
+  60%, 100% { left: 110%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pl-navbar-edge, .pl-navbar-scan::after { animation: none; }
+}
+
+/* ---------- Navbar enhancements ---------- */
+/* Radar pulse rings behind the logo */
+.pl-radar {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(244, 63, 94, 0.7);
+  pointer-events: none;
+  animation: radar-ping 2.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.pl-radar-late { animation-delay: 1.4s; }
+@keyframes radar-ping {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+/* Live status dot */
+.pl-live-dot {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: #34d399;
+  box-shadow: 0 0 8px #34d399;
+}
+.pl-live-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: inherit;
+  animation: radar-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.pl-live-dot-busy {
+  background: #fbbf24;
+  box-shadow: 0 0 8px #fbbf24;
+}
+.pl-live-dot-busy::after { animation-duration: 0.8s; }
+
+/* Scroll progress, drawn over the gradient edge */
+.pl-navbar-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  background: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.9), 0 0 24px rgba(244, 63, 94, 0.9);
+  transition: width 80ms linear;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pl-radar, .pl-live-dot::after { animation: none; }
+}
